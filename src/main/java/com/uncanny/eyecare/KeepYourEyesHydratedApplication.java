@@ -6,17 +6,15 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootApplication
 @EnableScheduling
 public class KeepYourEyesHydratedApplication {
     {
+        // This makes sure that jvm doesn't run in headless mode, which will stop the notifications
         System.setProperty("java.awt.headless", "false");
     }
 
-    private List<TrayIcon> trayList = new ArrayList<>();
     public static void main(String[] args) {
         SpringApplication.run(KeepYourEyesHydratedApplication.class, args);
     }
@@ -27,10 +25,6 @@ public class KeepYourEyesHydratedApplication {
 
         if (SystemTray.isSupported()) {
             SystemTray tray = SystemTray.getSystemTray();
-            for (TrayIcon trayIcon : trayList){
-                tray.remove(trayIcon);
-            }
-
             TrayIcon[] trayIcons = tray.getTrayIcons();
 
             for (TrayIcon trayIcon: trayIcons ) {
@@ -49,10 +43,9 @@ public class KeepYourEyesHydratedApplication {
             trayIcon.setImageAutoSize(true);
             //Set tooltip text for the tray icon
             tray.add(trayIcon);
-            trayList.add(trayIcon);
 
             trayIcon.displayMessage("Hey, Man", "Do not forget to look around you.", TrayIcon.MessageType.INFO);
         } else
-            System.out.println("Not Supported");
+            System.out.println("Tray Icon Not Supported");
     }
 }
