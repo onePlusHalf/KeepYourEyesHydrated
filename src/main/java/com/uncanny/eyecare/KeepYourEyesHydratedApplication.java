@@ -44,7 +44,7 @@ public class KeepYourEyesHydratedApplication {
             //Set tooltip text for the tray icon
             tray.add(trayIcon);
 
-            trayIcon.displayMessage("Hey, Man", "Do not forget to look around you.", TrayIcon.MessageType.INFO);
+            trayIcon.displayMessage("Hey, Rahul", "Give your eyes some rest. Do not forget to look around.", TrayIcon.MessageType.INFO);
         } else
             System.out.println("Tray Icon Not Supported");
     }

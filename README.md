@@ -12,6 +12,6 @@ It is java/spring project to get window tray notification.
 
 ## How to create a jar and run the jar ?
 - Currently this project supports Java 8
-- run `mvn clean package spring:repackage`
+- run `mvn clean package`
 - this will create a jar in `target` folder
 - run the jar using , `java -jar eycare****.jar`
